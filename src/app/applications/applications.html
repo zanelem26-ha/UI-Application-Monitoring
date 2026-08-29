@@ -1,0 +1,64 @@
+<div class="applications-page">
+
+  <div class="page-header">
+    <div>
+      <h1>Applications</h1>
+      <p>Monitor and manage registered applications.</p>
+    </div>
+
+    <button class="add-button">
+      + Add Application
+    </button>
+  </div>
+
+  <div class="applications-table-container">
+
+    <table>
+
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Application</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        @for (application of applications; track application.applicationId) {
+
+          <tr>
+
+            <td>
+              {{ application.applicationId }}
+            </td>
+
+            <td>
+              {{ application.applicationName }}
+            </td>
+
+            <td>
+              <span class="status">
+                {{ application.currentStatus }}
+              </span>
+            </td>
+
+            <td>
+              <a class="view-button"
+                [routerLink]="['/applications', application.applicationId]">
+                View
+              </a>
+            </td>
+
+          </tr>
+
+        }
+
+      </tbody>
+
+    </table>
+
+  </div>
+
+</div>

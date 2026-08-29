@@ -1,0 +1,156 @@
+<div class="application-details" *ngIf="application">
+
+  <div class="details-header">
+
+    <div>
+      <h1>{{ application.applicationName }}</h1>
+
+      <p>
+        Application ID: {{ application.applicationId }}
+      </p>
+    </div>
+
+    <span class="status">
+      {{ application.currentStatus }}
+    </span>
+
+  </div>
+
+  <div class="details-grid">
+
+    <!-- Application Information -->
+
+    <div class="details-card">
+
+      <h3>Application Information</h3>
+
+      <div class="detail-row">
+        <span class="label">Application Name</span>
+        <span>{{ application.applicationName }}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Status</span>
+        <span>{{ application.currentStatus }}</span>
+      </div>
+
+      <div class="detail-row">
+        <span class="label">Application ID</span>
+        <span>{{ application.applicationId }}</span>
+      </div>
+
+    </div>
+
+
+    <!-- Incidents -->
+
+    <div class="details-card">
+
+      <h3>Incidents</h3>
+
+      <div *ngIf="incidents.length === 0">
+        <p>No incidents recorded for this application.</p>
+      </div>
+
+      <table *ngIf="incidents.length > 0">
+
+        <thead>
+          <tr>
+            <th>Incident ID</th>
+            <th>Issue</th>
+            <th>Status</th>
+            <th>Severity</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let incident of incidents">
+
+            <td>
+              {{ incident.incidentId }}
+            </td>
+
+            <td>
+              {{ incident.title }}
+            </td>
+
+            <td>
+              {{ incident.status }}
+            </td>
+
+            <td>
+              {{ incident.severity }}
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+
+    <!-- Health Checks -->
+
+    <div class="details-card">
+
+      <h3>Recent Health Checks</h3>
+
+      <div *ngIf="healthChecks.length === 0">
+        <p>No health checks recorded for this application.</p>
+      </div>
+
+      <table *ngIf="healthChecks.length > 0">
+
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Status</th>
+            <th>Response Time</th>
+            <th>Error Message</th>
+            <th>Checked Date</th>
+          </tr>
+        </thead>
+
+        <tbody>
+
+          <tr *ngFor="let healthCheck of healthChecks">
+
+            <td>
+              {{ healthCheck.healthCheckId }}
+            </td>
+
+            <td>
+              {{ healthCheck.status }}
+            </td>
+
+            <td>
+              {{ healthCheck.responseTimeMs }} ms
+            </td>
+
+            <td>
+              {{ healthCheck.errorMessage || '-' }}
+            </td>
+
+            <td>
+              {{ healthCheck.checkedDate | date:'medium' }}
+            </td>
+
+          </tr>
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<div class="loading" *ngIf="!application">
+  Loading application...
+</div>
