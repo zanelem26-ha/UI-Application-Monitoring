@@ -19,4 +19,11 @@ export class IncidentsService {
     `${this.apiUrl}/application/${applicationId}`
   );
   }
+  
+  getIncidentById(id: number) {
+  return this.http.get<any>(
+    `${this.apiUrl}/${id}`
+  );
+}
+
 }

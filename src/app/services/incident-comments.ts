@@ -13,4 +13,11 @@ export class IncidentCommentsService {
   getIncidentComments() {
     return this.http.get<any[]>(this.apiUrl);
   }
+
+  getCommentsByIncident(incidentId: number) {
+  return this.http.get<any[]>(
+    `${this.apiUrl}/incident/${incidentId}`
+  );
+  }
+
 }

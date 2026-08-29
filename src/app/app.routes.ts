@@ -4,6 +4,7 @@ import { Dashboard } from './dashboard/dashboard';
 import { Applications } from './applications/applications';
 import { ApplicationDetails } from './application-details/application-details';
 import { Incidents } from './incidents/incidents';
+import { IncidentDetails } from './incident-details/incident-details';
 
 export const routes: Routes = [
 
@@ -25,6 +26,10 @@ export const routes: Routes = [
   {
     path: 'incidents',
     component: Incidents
+  },
+
+  { path: 'incidents/:id', 
+    component: IncidentDetails 
   }
 
 ];

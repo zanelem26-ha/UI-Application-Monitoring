@@ -1,0 +1,80 @@
+<div class="incident-details" *ngIf="incident">
+
+  <div class="details-header">
+
+    <div>
+      <h1>Incident #{{ incident.incidentId }}</h1>
+
+      <p>
+        {{ incident.title }}
+      </p>
+    </div>
+
+    <span class="status">
+      {{ incident.status }}
+    </span>
+
+  </div>
+
+  <div class="details-card">
+
+    <h3>Incident Information</h3>
+
+    <div class="detail-row">
+      <span class="label">Title</span>
+      <span>{{ incident.title }}</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="label">Status</span>
+      <span>{{ incident.status }}</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="label">Severity</span>
+      <span>{{ incident.severity }}</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="label">Application ID</span>
+      <span>{{ incident.applicationId }}</span>
+    </div>
+
+    <div class="detail-row">
+      <span class="label">Created Date</span>
+      <span>{{ incident.createdDate | date:'medium' }}</span>
+    </div>
+
+    <div class="details-card">
+
+        <h3>Comments</h3>
+
+        <div *ngIf="comments.length === 0">
+            <p>No comments recorded for this incident.</p>
+        </div>
+
+        <div *ngFor="let comment of comments" class="comment">
+
+            <div class="comment-header">
+            <strong>{{ comment.createdBy }}</strong>
+
+            <span>
+                {{ comment.createdDate | date:'medium' }}
+            </span>
+            </div>
+
+            <p>
+            {{ comment.comment }}
+            </p>
+
+  </div>
+
+</div>
+
+  </div>
+
+</div>
+
+<div class="loading" *ngIf="!incident">
+  Loading incident...
+</div>

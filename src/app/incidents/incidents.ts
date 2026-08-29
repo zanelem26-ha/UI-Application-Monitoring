@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { IncidentsService } from '../services/incidents';
 
 @Component({
   selector: 'app-incidents',
@@ -6,6 +7,8 @@ import { Component } from '@angular/core';
   templateUrl: './incidents.html',
   styleUrl: './incidents.css',
 })
+
 export class Incidents {
+  
 
 }
