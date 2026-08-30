@@ -2,6 +2,44 @@
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.35.
 
+Angular frontend for the Application Monitoring System.
+
+The application provides a user interface for monitoring applications, viewing incidents, reviewing incident comments, and analysing application health checks.
+
+## Overview
+
+The UI communicates with the Application Monitoring REST API to retrieve and manage monitoring information.
+
+The application provides a dashboard-oriented interface for viewing the operational status of monitored applications.
+
+## Technologies
+
+- Angular 20
+- TypeScript
+- HTML
+- CSS
+- RxJS
+- Angular Router
+- HttpClient
+
+## Application Structure
+
+```text
+Dashboard
+    │
+    ├── Applications
+    │      │
+    │      └── Application Details
+    │              ├── Application Information
+    │              ├── Incidents
+    │              └── Health Checks
+    │
+    └── Incidents
+           │
+           └── Incident Details
+                  └── Comments
+
+
 ## Development server
 
 To start a local development server, run:
