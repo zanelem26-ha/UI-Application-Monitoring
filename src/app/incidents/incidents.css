@@ -1,0 +1,161 @@
+.incidents-page {
+  padding: 30px;
+}
+
+.page-header {
+  margin-bottom: 25px;
+}
+
+.page-header h1 {
+  margin: 0;
+  font-size: 28px;
+}
+
+.page-header p {
+  margin-top: 6px;
+  color: #666;
+}
+
+.incidents-card {
+  background: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  overflow-x: auto;
+}
+
+/* Table */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #f5f6f8;
+}
+
+th,
+td {
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+th {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+td {
+  font-size: 14px;
+}
+
+tbody tr:hover {
+  background: #fafafa;
+}
+
+
+/* Buttons */
+
+button {
+  border: none;
+  border-radius: 6px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+
+/* Expanded incident */
+
+.expanded-row {
+  background: #fafafa;
+}
+
+.expanded-row td {
+  padding: 0;
+}
+
+.incident-expanded {
+  padding: 25px;
+  border-left: 4px solid #333;
+}
+
+.incident-expanded h3 {
+  margin-top: 0;
+  margin-bottom: 18px;
+  font-size: 18px;
+}
+
+.incident-expanded p {
+  margin: 8px 0;
+}
+
+
+/* Comments */
+
+.comment {
+  padding: 15px;
+  margin-top: 12px;
+  background: white;
+  border: 1px solid #e5e5e5;
+  border-radius: 8px;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.comment-header strong {
+  font-size: 14px;
+}
+
+.comment-header span {
+  font-size: 12px;
+  color: #777;
+}
+
+.comment p {
+  margin: 0;
+  color: #444;
+  line-height: 1.5;
+}
+
+
+/* Empty state */
+
+.empty-state {
+  text-align: center;
+  padding: 30px;
+  color: #777;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+  .incidents-page {
+    padding: 15px;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
+
+  .comment-header {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+}

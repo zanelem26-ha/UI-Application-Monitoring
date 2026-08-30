@@ -1,0 +1,152 @@
+<div class="incidents-page">
+
+  <div class="page-header">
+    <div>
+      <h1>Incidents</h1>
+      <p>Monitor and manage application incidents.</p>
+    </div>
+  </div>
+
+  <div class="incidents-card">
+
+    <table *ngIf="incidents.length > 0">
+
+      <thead>
+        <tr>
+          <th>Incident ID</th>
+          <th>Application</th>
+          <th>Issue</th>
+          <th>Status</th>
+          <th>Severity</th>
+          <th>Created</th>
+          <th>Details</th>
+        </tr>
+      </thead>
+
+      <tbody>
+
+        <ng-container *ngFor="let incident of incidents">
+
+          <tr>
+
+            <td>
+              {{ incident.incidentId }}
+            </td>
+
+            <td>
+              {{ incident.application?.applicationName || incident.applicationId }}
+            </td>
+
+            <td>
+              {{ incident.title }}
+            </td>
+
+            <td>
+              {{ incident.status }}
+            </td>
+
+            <td>
+              {{ incident.severity }}
+            </td>
+
+            <td>
+              {{ incident.createdDate | date:'medium' }}
+            </td>
+
+            <td>
+              <button (click)="toggleIncident(incident.incidentId)">
+                {{ expandedIncidentId === incident.incidentId ? 'Hide' : 'View' }}
+              </button>
+            </td>
+
+          </tr>
+
+
+          <tr *ngIf="expandedIncidentId === incident.incidentId">
+
+            <td colspan="7">
+
+              <div class="incident-expanded">
+
+                <h3>Incident Details</h3>
+
+                <p>
+                  <strong>Application:</strong>
+                  {{ incident.application?.applicationName || incident.applicationId }}
+                </p>
+
+                <p>
+                  <strong>Issue:</strong>
+                  {{ incident.title }}
+                </p>
+
+                <p>
+                  <strong>Status:</strong>
+                  {{ incident.status }}
+                </p>
+
+                <p>
+                  <strong>Severity:</strong>
+                  {{ incident.severity }}
+                </p>
+
+                <p>
+                  <strong>Created:</strong>
+                  {{ incident.createdDate | date:'medium' }}
+                </p>
+
+                <h3>Comments</h3>
+
+          <div *ngIf="!comments[incident.incidentId]">
+            <p>Loading comments...</p>
+          </div>
+
+          <div
+            *ngIf="comments[incident.incidentId]?.length === 0">
+
+            <p>No comments recorded for this incident.</p>
+
+          </div>
+
+          <div
+            *ngFor="let comment of comments[incident.incidentId]"
+            class="comment">
+
+            <div class="comment-header">
+
+              <strong>
+                {{ comment.createdBy }}
+              </strong>
+
+              <span>
+                {{ comment.createdDate | date:'medium' }}
+              </span>
+
+            </div>
+
+              <p>
+                {{ comment.comment }}
+              </p>
+
+            </div>
+
+              </div>
+
+            </td>
+
+          </tr>
+
+        </ng-container>
+
+      </tbody>
+
+    </table>
+
+
+    <div *ngIf="incidents.length === 0" class="empty-state">
+      <p>No incidents recorded.</p>
+    </div>
+
+  </div>
+
+</div>
